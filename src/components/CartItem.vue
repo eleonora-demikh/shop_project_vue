@@ -44,19 +44,22 @@ export default {
       const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
       const updatedCartItems = cartItems.filter((item) => item.id !== this.product.id);
       localStorage.setItem('cart', JSON.stringify(updatedCartItems));
+
     },
   }
 }
 </script>
 
 <template>
-  <div class="cart-item">
-    <img
-      class="cart-image"
-      :src="product.image"
-      :alt="product.title"
-    >
-    <h3 class="cart-title">{{ product.title }}</h3>
+      <div class="cart-item">
+        <img
+          class="cart-image"
+          :src="product.image"
+          :alt="product.title"
+        >
+        <h3 class="cart-title">{{ product.title }}</h3>
+          <div class="cart-price"><span>price: </span><strong>{{ product.price * count }}</strong></div>
+    
     <div class="cart-count">
       <button
         class="cart-icon"
@@ -89,17 +92,26 @@ export default {
 }
 
 .cart-image {
-  max-height: 80px;
+  max-width: 60px;
 }
 
 .cart-title {
   font-size: 0.7rem;
   margin-left: 18px;
   line-height: 1rem;
+  font-weight: 600;
+}
+
+.cart-price {
+  font-size: 0.9rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 20px;
 }
 
 .cart-count {
-  width: 100%;
   margin-top: auto;
   display: flex;
   flex-direction: column;
@@ -124,26 +136,4 @@ export default {
   color: rgba(34, 34, 34, 0.657);
   cursor: pointer;
 }
-
-/* .cart-button {
-  background-color: transparent;
-  border: 1px solid rgba(64, 64, 64, 0.274);
-  border-radius: 20px;
-  color: rgba(34, 34, 34, 0.657);
-  font-size: 1rem;
-  padding: 6px 10px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.cart-button:hover {
-  transform: scale(1.1);
-  background-color: rgba(175, 203, 175, 0.407);
-  border-color: rgba(175, 203, 175, 0.407);
-}
-
-.added {
-  background-color: rgba(175, 203, 175, 0.407);
-  border-color: rgba(175, 203, 175, 0.407);
-} */
 </style>

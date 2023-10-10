@@ -55,7 +55,6 @@ export default {
 .catalog-page {
   width: 100vw;
   padding: 20px;
-  overflow: hidden;
 }
 
 .title {

@@ -1,5 +1,5 @@
 <script>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref } from 'vue';
 import CartItem from '../components/CartItem.vue';
 
 export default {
@@ -8,30 +8,30 @@ export default {
   },
   data() {
     return {
-      products: [],
+      total: 0,
       title: "There is nothing to show",
+      modalVisible: false,
     };
   },
   setup() {
     const products = ref([]);
+    const total = ref(0);
 
     const loadCartItems = () => {
       const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
       products.value = cartItems;
+
+      let amount = 0;
+
+      cartItems.map(item => {
+        amount += (item.count * item.price)
+      })
+
+      total.value = amount;
+      console.log(total.value);
     };
 
-    onMounted(() => {
-      loadCartItems();
-      window.addEventListener('storage', (event) => {
-        if (event.key === 'cart') {
-          loadCartItems();
-        }
-      });
-    });
-
-    onBeforeUnmount(() => {
-      window.removeEventListener('storage', loadCartItems);
-    });
+    loadCartItems();
 
     return {
       products,
@@ -51,7 +51,7 @@ export default {
       <span>Back to homepage</span>
     </RouterLink>
 
-    <h1 class="title">Cart</h1>
+    <h1 class="title">Cart</h1> 
 
     <section class="cart">
       <article
@@ -64,6 +64,11 @@ export default {
         />
       </article>
     </section>
+    
+      <div class="cart-total">
+        <h2>Total: <strong>{{ total.value }}</strong></h2>
+        <button class="cart-button">Checkout</button>
+      </div>
   </div>
 </template>
 
@@ -82,19 +87,13 @@ export default {
 
 .cart {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 10px;
 }
 
-@media (min-width: 780px) {
+@media (min-width: 1024px) {
   .cart {
     grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1160px) {
-  .cart {
-    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -103,5 +102,32 @@ export default {
   align-items: center;
   color: rgb(154, 154, 154);
   font-size: 0.8rem;
+}
+
+.cart-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.cart-button {
+  margin-top: 12px;
+  height: 40px;
+  background-color: transparent;
+  width: 100%;
+  font-size: 1.2rem;
+  color: rgb(61, 61, 61);
+  border: 2px solid rgba(146, 144, 144, 0.274);
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.cart-button:hover {
+  transform: scale(1.1);
+  background-color: rgba(175, 203, 175, 0.407);
+  border-color: rgba(175, 203, 175, 0.407);
 }
 </style>
