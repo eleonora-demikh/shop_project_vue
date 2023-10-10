@@ -2,7 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
-import { VitePluginGhPages } from 'vite-plugin-gh-pages';
+import VitePluginGhPages from 'vite-plugin-gh-pages';
 
 // https://vitejs.dev/config/
 export default defineConfig({
