@@ -1,65 +1,52 @@
 <script setup>
 </script>
-
 <template>
-  <section>
-    <nav>
-      <RouterLink to="/women">
-        <div class="path-img women">
-          <div class="hover-style">Women's clothing</div>
-        </div>
-      </RouterLink>
-
-      <RouterLink to="/men">
-        <div class="path-img men">
-          <div class="hover-style">Men's clothing</div>
-        </div>
-      </RouterLink>
-    </nav>
+  <section class="categories">
+    <RouterLink :to="{name:'category',params:{category:'women\'s'}}" class="categoryLink women">
+      <div class="title">Women's clothing</div>
+    </RouterLink>
+    <RouterLink :to="{name:'category',params:{category:'men\'s'}}" class="categoryLink men">
+      <div class="title">Men's clothing</div>
+    </RouterLink>
   </section>
 </template>
-
 <style>
-nav {
+.categories {
   display: flex;
   position: relative;
 }
 
-.path-img {
-  width: calc(100vw / 2);
-  height: calc(100vh - 80px);
-  background-size: cover;
-  display: flex;
-  justify-content: center;
+.categoryLink {
+  position: relative;
+  flex-grow: 2;
+  min-height: 90vh;
   align-items: center;
-  color: whitesmoke;
-  font-size: 1.5rem;
 }
 
-.path-img:hover {
-  background-color: rgba(0, 0, 0, 0.676);
-}
-
-.hover-style {
-  height: 100%;
+.categoryLink:after {
+  content: '';
+  position: absolute;
+  display: none;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  text-shadow: 2px 3px 3px rgb(26, 25, 25);
-}
-
-.hover-style:hover {
+  height: 100%;
+  z-index: 2;
   background-color: rgba(56, 55, 55, 0.375);
   transition: 0.3s ease;
-
 }
 
-@media (min-width: 768px) {
-  .path-img {
-    font-size: 2rem;
-  }
+.categoryLink .title {
+  color: #f2f2f2;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  z-index: 3;
+  text-shadow: 2px 3px 3px rgb(26, 25, 25);
+  font-size: 2rem;
+}
+
+.categoryLink:hover.categoryLink:after {
+  display: block;
 }
 
 .women {

@@ -54,7 +54,7 @@ export default {
     <h3 class="card-title">{{ product.title }}</h3>
     <div class="card-bottom">
       <p>price: <span class="card-price"><strong>{{ product.price
-      }}</strong></span></p>
+      }} $</strong></span></p>
 
       <button
         class="card-button"

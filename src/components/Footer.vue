@@ -20,7 +20,6 @@ import { RouterLink } from 'vue-router'
 <style scoped>
 footer {
   margin-top: auto;
-  width: 100vw;
   height: 160px;
   display: flex;
   flex-direction: column;
