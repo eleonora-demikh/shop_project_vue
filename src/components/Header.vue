@@ -107,12 +107,6 @@ header {
   margin: 0 1rem;
 }
 
-@media (min-width: 1024px) {
-  .logo {
-    height: 40px;
-  }
-}
-
 @media (hover: hover) {
   a:hover {
     transform: scale(1.1);
