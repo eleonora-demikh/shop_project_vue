@@ -2,7 +2,9 @@
 
 const props = defineProps(['product', 'updateCardList'])
 const emit = defineEmits(['updateCardList'])
+
 const getCardItems = () => JSON.parse(localStorage.getItem('cart')) || []
+
 const updateCard = data => {
   localStorage.setItem('cart', JSON.stringify(data.filter((item) => !item.count <= 0)));
   emit('updateCardList');
@@ -108,26 +110,4 @@ const changeItemQuantity = (type) => {
   color: rgba(34, 34, 34, 0.657);
   cursor: pointer;
 }
-
-/* .cart-button {
-  background-color: transparent;
-  border: 1px solid rgba(64, 64, 64, 0.274);
-  border-radius: 20px;
-  color: rgba(34, 34, 34, 0.657);
-  font-size: 1rem;
-  padding: 6px 10px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.cart-button:hover {
-  transform: scale(1.1);
-  background-color: rgba(175, 203, 175, 0.407);
-  border-color: rgba(175, 203, 175, 0.407);
-}
-
-.added {
-  background-color: rgba(175, 203, 175, 0.407);
-  border-color: rgba(175, 203, 175, 0.407);
-} */
 </style>
