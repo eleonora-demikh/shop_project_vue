@@ -9,11 +9,6 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
-        {
-      path: '/shop_project_vue/',
-      name: 'home',
-      component: HomeView
-    },
     {
       path: '/category/:category',
       name: 'category',

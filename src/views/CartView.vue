@@ -76,47 +76,6 @@ onUnmounted(() => {
 </template>
 
 <style>
-
-.modal-container {
-  position: fixed;
-  box-sizing: border-box;
-  padding: 15px;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(78, 78, 78, 0.528);
-  opacity: 0.5;
-  overflow: hidden;
-  z-index: 3;
-}
-
-.modal-window {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  height: 250px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 2px 4px 20px;
-  z-index: 4;
-}
-
-.modalWindow-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.modalWindow-text {
-  width: 250px;
-  margin: 15px 0;
-  text-align: center;
-  color: rgb(54, 53, 53);
-}
-
 .buy-button {
   margin-top: 12px;
   padding: 12px 20px;
@@ -163,9 +122,7 @@ onUnmounted(() => {
 }
 
 .cart-page {
-  width: 100vw;
   height: calc(100vh - 240px); 
-  padding: 20px;
 }
 
 .title {
