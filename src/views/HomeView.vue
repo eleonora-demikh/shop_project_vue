@@ -14,6 +14,7 @@
 .categories {
   display: flex;
   position: relative;
+  max-height: 1000px;
 }
 
 .categoryLink {
