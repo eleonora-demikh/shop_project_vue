@@ -14,7 +14,7 @@
 .categories {
   display: flex;
   position: relative;
-  max-height: 1000px;
+  margin-bottom: 20px;
 }
 
 .categoryLink {
@@ -53,10 +53,13 @@
 .women {
   background-image: url('@/assets/women.jpeg');
   background-position: 60% 0;
+  background-repeat: no-repeat;
 }
 
 .men {
   background-image: url('@/assets/men.jpeg');
   background-position: 45% 0;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>
