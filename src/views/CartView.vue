@@ -32,6 +32,7 @@ onUnmounted(() => {
 });
 
 </script>
+
 <template>
   <div class="cart-page">
     <RouterLink
@@ -102,6 +103,7 @@ onUnmounted(() => {
   margin-top: 40px;
   padding-top: 20px;
   font-size: 1.7rem;
+  margin-bottom: 20px;
   border-top: 1px solid rgba(105, 106, 106, 0.31);
 }
 
@@ -122,7 +124,8 @@ onUnmounted(() => {
 }
 
 .cart-page {
-  height: calc(100vh - 240px); 
+  min-height: calc(100vh - 240px); 
+  height: auto;
 }
 
 .title {

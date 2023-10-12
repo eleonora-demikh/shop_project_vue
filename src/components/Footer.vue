@@ -25,6 +25,7 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   box-shadow: inset 0 5px 10px rgba(154, 161, 177, 0.1);
 }
 
