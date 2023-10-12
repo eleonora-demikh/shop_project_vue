@@ -54,6 +54,7 @@
   background-image: url('@/assets/women.jpeg');
   background-position: 60% 0;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .men {
